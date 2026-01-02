@@ -1,0 +1,7 @@
+<sly data-sly-use.model="com.mysite.core.models.DisneyCardsModel">
+    <app-disney-cards 
+        heading="${model.heading}"
+        description="${model.componentDescription}"
+        cards-data="${model.cardList @ context='scriptString'}">
+    </app-disney-cards>
+</sly>

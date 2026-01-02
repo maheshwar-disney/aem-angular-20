@@ -1,0 +1,22 @@
+<section class="disney-stays">
+    <div class="disney-stays__header">
+        <h2 class="disney-stays__main-title">{{ heading }}</h2>
+        <p class="disney-stays__main-desc">{{ description }}</p>
+    </div>
+
+    <div class="disney-stays__grid">
+        <div class="card" *ngFor="let card of cards">
+            <div class="card__image-wrapper">
+                <img [src]="card.cardImage" [alt]="card.altText" class="card__img">
+            </div>
+            <div class="card__content">
+                <h3 class="card__title">{{ card.cardTitle }}</h3>
+                <p class="card__description">{{ card.cardDescription }}</p>
+                
+                <a [href]="card.ctaLink + '.html'" class="card__link">
+                    <span class="card__link-arrow"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

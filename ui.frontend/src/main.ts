@@ -6,6 +6,7 @@ import { appConfig } from './app/app.config';
 import { MyAngularComponent } from './app/components/my-angular-component/my-angular-component';
 import { HeroBannerComponent } from './app/components/hero-banner/hero-banner';
 import { CtaBannerComponent } from './app/components/cta-banner/cta-banner';
+import { DisneyCardsComponent } from './app/components/disney-cards/disney-cards';
 
 const bootstrap = () => {
   createApplication(appConfig)
@@ -28,6 +29,12 @@ const bootstrap = () => {
         const ctaElement = createCustomElement(CtaBannerComponent, { injector });
         customElements.define('app-cta-banner', ctaElement);
         console.log('🚀 Mapped: <app-cta-banner>');
+      }
+
+      if (!customElements.get('app-disney-cards')) {
+        const disneyElement = createCustomElement(DisneyCardsComponent, { injector });
+        customElements.define('app-disney-cards', disneyElement);
+        console.log('🚀 Mapped: <app-disney-cards>');
       }
     })
     .catch(err => console.error('Angular initialization failed:', err));
