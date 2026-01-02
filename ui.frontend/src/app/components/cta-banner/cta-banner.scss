@@ -1,0 +1,45 @@
+.vacay-container {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #ffffff;
+    font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    .vacay-content {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .vacay-title {
+        font-size: 48px;
+        color: #00233c;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+
+    .vacay-description {
+        font-size: 18px;
+        line-height: 1.5;
+        color: #333333;
+        margin-bottom: 40px;
+        padding: 0 10%;
+    }
+
+    .vacay-cta {
+        display: inline-block;
+        background-color: #306eb3;
+        color: #ffffff;
+        padding: 14px 40px;
+        border-radius: 30px; /* Pill shape */
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 600;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: #1f508a;
+            transform: scale(1.02);
+        }
+    }
+}

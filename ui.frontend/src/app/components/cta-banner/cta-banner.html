@@ -1,0 +1,16 @@
+<section class="vacay-container">
+    <div class="vacay-content">
+        <h2 class="vacay-title" *ngIf="heading">{{ heading }}</h2>
+
+        <p class="vacay-description" *ngIf="description">
+            {{ description }}
+        </p>
+
+        <a *ngIf="ctaLink" 
+           [href]="ctaLink" 
+           class="vacay-cta" 
+           [attr.aria-label]="buttonText">
+            {{ buttonText }}
+        </a>
+    </div>
+</section>
