@@ -1,0 +1,71 @@
+.calendar-wrapper {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+
+    .calendar-content {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .calendar-title {
+        font-size: 32px;
+        color: #00233c;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .picker-container {
+        margin-bottom: 30px;
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .custom-date-picker {
+            padding: 12px 15px;
+            border: 2px solid #306eb3;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+
+            &:focus {
+                border-color: #1f508a;
+                box-shadow: 0 0 5px rgba(48, 110, 179, 0.3);
+            }
+        }
+    }
+
+    .result-display {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #eef5fc;
+        border-radius: 6px;
+
+        p {
+            margin: 0;
+            font-size: 18px;
+            color: #00233c;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #306eb3;
+        }
+    }
+
+    .placeholder-text {
+        color: #777;
+        font-style: italic;
+    }
+}

@@ -6,16 +6,42 @@
 
     <div class="disney-stays__grid">
         <div class="card" *ngFor="let card of cards">
-            <div class="card__image-wrapper">
+            <!-- <div class="card__image-wrapper">
                 <img [src]="card.cardImage" [alt]="card.altText" class="card__img">
             </div>
             <div class="card__content">
                 <h3 class="card__title">{{ card.cardTitle }}</h3>
-                <p class="card__description">{{ card.cardDescription }}</p>
+                <div class="card__info">
+                    <p class="card__description">{{ card.cardDescription }}</p>
                 
-                <a [href]="card.ctaLink + '.html'" class="card__link">
-                    <span class="card__link-arrow"></span>
-                </a>
+                    <a [href]="card.ctaLink + '.html'" class="card__link">
+                        <span class="card__link-arrow"></span>
+                    </a>
+                </div>
+            </div> -->
+
+
+            <div>
+                <wdpr-card-large [disabled]="card.disabled" class="disney-card">
+                    <wdpr-media
+                        slot="media"
+                        [src]="card.cardImage || '/storybook/static/media/media-mobile.5661ddbd.png'"
+                        [smallSrc]="card.cardImage || '/storybook/static/media/media-mobile.5661ddbd.png'"
+                        [mediumSrc]="card.cardImage || '/storybook/static/media/media-mobile.5661ddbd.png'"
+                        [largeSrc]="card.cardImage || '/storybook/static/media/media-mobile.5661ddbd.png'"
+                        [alt]="card.altText || 'Sample image'"
+                        aspect="landscape"
+                        landscapeRatio="2:1"
+                        objectFit="cover"
+                    ></wdpr-media>
+                    <wdpr-card-large-content
+                        slot="content"
+                        [primaryHeadline]="card.primaryHeadline || card.cardTitle"
+                        [headlineLabel]="card.headlineLabel"
+                        [headlineSubtext]="card.headlineSubtext"
+                        [body]="card.body || card.cardDescription"
+                    ></wdpr-card-large-content>
+                </wdpr-card-large>
             </div>
         </div>
     </div>

@@ -9,6 +9,7 @@ import { MyAngularComponent } from './app/components/my-angular-component/my-ang
 import { HeroBannerComponent } from './app/components/hero-banner/hero-banner';
 import { CtaBannerComponent } from './app/components/cta-banner/cta-banner';
 import { DisneyCardsComponent } from './app/components/disney-cards/disney-cards';
+import { CalendarComponent } from './app/components/calendar-component/calendar-component';
 
 try {
   registerComponentLibraryElements();
@@ -44,6 +45,12 @@ const bootstrap = () => {
         const disneyElement = createCustomElement(DisneyCardsComponent, { injector });
         customElements.define('app-disney-cards', disneyElement);
         console.log('🚀 Mapped: <app-disney-cards>');
+      }
+
+      if (!customElements.get('app-calendar-component')) {
+        const calendarElement = createCustomElement(CalendarComponent, { injector });
+        customElements.define('app-calendar-component', calendarElement);
+        console.log('🚀 Mapped: <app-calendar-component>');
       }
     })
     .catch(err => console.error('Angular initialization failed:', err));

@@ -1,0 +1,47 @@
+<section class="calendar-wrapper">
+    <div class="calendar-content">
+        <h2 class="calendar-title" *ngIf="heading">{{ heading }}</h2>
+
+        <div class="picker-container">
+            <label for="date-input">Please choose a date:</label>
+            <div class="date-input-wrap">
+                <input 
+                    id="date-input"
+                    type="date" 
+                    [formControl]="datePickerControl" 
+                    class="custom-date-picker"
+                    (click)="toggleCalendar()"
+                    readonly
+                />
+                <button type="button" class="calendar-toggle" (click)="toggleCalendar()" aria-label="Toggle calendar">
+                    <!-- Use a simple arrow glyph so the icon is always visible -->
+                    <span class="calendar-toggle-icon" aria-hidden="true">→</span>
+                </button>
+            </div>
+
+            <wdpr-calendar *ngIf="showCalendar"
+                variant="single"
+                mode="single"
+                [value]="selectedDate"
+                min="10/01/2025"
+                max="11/30/2025"
+                maxRange="0"
+                size="medium"
+                [enableSixWeeks]="false"
+                [displayBorder]="true"
+                [blockedDates]="blockedDates"
+                [showDisabledSlash]="false"
+                (dateSelected)="onDateSelected($event)"
+                (rangeDatesSelected)="onRangeDatesSelected($event)"
+            ></wdpr-calendar>
+        </div>
+
+        <div class="result-display" *ngIf="selectedDate; else noSelection">
+            <p>Selected date is: <span class="highlight">{{ selectedDate | date:'fullDate' }}</span></p>
+        </div>
+
+        <ng-template #noSelection>
+            <p class="placeholder-text">No date selected yet.</p>
+        </ng-template>
+    </div>
+</section>

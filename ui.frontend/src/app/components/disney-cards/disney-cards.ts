@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,7 +7,8 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './disney-cards.html',
   styleUrls: ['./disney-cards.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
 export class DisneyCardsComponent {
   @Input() heading: string = '';
@@ -26,6 +27,15 @@ export class DisneyCardsComponent {
         console.error("Failed to parse cards data", e);
         this.cards = [];
       }
+    }
+  }
+
+  // Handler for wdpr favorites toggle events
+  wdprFavoritesToggle(event: any, card: any): void {
+    console.log('Favorites toggled for card', card, event);
+    // Update the card state so UI stays in sync
+    if (card) {
+      card.favorite = event?.selected ?? !card.favorite;
     }
   }
 }
