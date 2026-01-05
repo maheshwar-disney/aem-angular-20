@@ -6,21 +6,6 @@
 
     <div class="disney-stays__grid">
         <div class="card" *ngFor="let card of cards">
-            <!-- <div class="card__image-wrapper">
-                <img [src]="card.cardImage" [alt]="card.altText" class="card__img">
-            </div>
-            <div class="card__content">
-                <h3 class="card__title">{{ card.cardTitle }}</h3>
-                <div class="card__info">
-                    <p class="card__description">{{ card.cardDescription }}</p>
-                
-                    <a [href]="card.ctaLink + '.html'" class="card__link">
-                        <span class="card__link-arrow"></span>
-                    </a>
-                </div>
-            </div> -->
-
-
             <div>
                 <wdpr-card-large [disabled]="card.disabled" class="disney-card">
                     <wdpr-media
@@ -40,7 +25,15 @@
                         [headlineLabel]="card.headlineLabel"
                         [headlineSubtext]="card.headlineSubtext"
                         [body]="card.body || card.cardDescription"
-                    ></wdpr-card-large-content>
+                    >
+                        <div class="custom-nav-overlay">
+                            <wdpr-icon icon="next" class="next-arrow"></wdpr-icon>
+                            <a [href]="card.link" class="stretched-link"><wdpr-icon-library
+                            icon="next"
+                            size="medium"
+                        ></wdpr-icon-library></a>
+                        </div>
+                    </wdpr-card-large-content>
                 </wdpr-card-large>
             </div>
         </div>
