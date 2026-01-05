@@ -16,6 +16,7 @@ export class CtaBannerComponent {
   @Input('description') description: string = '';
   @Input('button-text') buttonText: string = '';
   @Input('cta-link') ctaLink: string = '';
+  @Input() variant: string = '';
 
   onClick(event: any): void {
     console.log('Button clicked', event);

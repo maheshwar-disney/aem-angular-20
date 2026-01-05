@@ -5,9 +5,14 @@
         <p class="vacay-description" *ngIf="description">
             {{ description }}
         </p>
-
-        <a *ngIf="ctaLink" [href]="ctaLink" class="vacay-cta" [attr.aria-label]="buttonText">
-            {{ buttonText }}
-        </a>
+        <div [ngStyle]="{
+          'background-color': variant === 'tertiary-alt' ? 'var(--color-plum-700)' : 'initial',
+        }">
+            <wdpr-button *ngIf="ctaLink" type="button" variant="primary" size="medium"
+                [a11yLabel]="buttonText" [attr.aria-label]="buttonText" [disabled]="false" display="fit"
+                (clicked)="onClick($event)" (disabledChanged)="onDisabledChanged($event)">
+                {{ buttonText }}
+            </wdpr-button>
+        </div>
     </div>
 </section>

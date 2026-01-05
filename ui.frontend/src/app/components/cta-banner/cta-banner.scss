@@ -26,20 +26,9 @@
         padding: 0 10%;
     }
 
-    .vacay-cta {
-        display: inline-block;
-        background-color: #306eb3;
-        color: #ffffff;
-        padding: 14px 40px;
-        border-radius: 30px; /* Pill shape */
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: 600;
-        transition: all 0.2s ease-in-out;
-
-        &:hover {
-            background-color: #1f508a;
-            transform: scale(1.02);
-        }
+    wdpr-button{
+        padding: 10px;
+        display: flex;
+        justify-content: center;
     }
 }
