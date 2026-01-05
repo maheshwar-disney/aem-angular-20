@@ -10,7 +10,8 @@ module.exports = {
       assets: {
         js: [
           "dist/clientlib-site/browser/polyfills.js",
-          "dist/clientlib-site/browser/main.js"
+          "dist/clientlib-site/browser/main.js",
+          "dist/clientlib-site/browser/chunk-*.js"  // Include all chunk files in js folder (required for relative paths in main.js)
         ],
         css: [
           "dist/clientlib-site/browser/styles.css" // Point to specific file if possible

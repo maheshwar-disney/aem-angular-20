@@ -4,6 +4,10 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 
 import javax.annotation.PostConstruct;
@@ -44,7 +48,13 @@ public class DisneyCardsModel {
         return componentDescription;
     }
 
-    public List<Map<String, Object>> getCardList() {
-        return cardList;
+    public String getCardList() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.writeValueAsString(this.cardList);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return "No list found";
     }
 }

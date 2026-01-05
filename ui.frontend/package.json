@@ -30,6 +30,8 @@
     "@angular/forms": "^20.3.0",
     "@angular/platform-browser": "^20.3.0",
     "@angular/router": "^20.3.0",
+    "@wdpr/ra-web-components": "^1.0.9",
+    "@wdpr/ra-web-components-angular": "^1.0.9",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -47,5 +49,13 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.9.2"
+  },
+  "overrides": {
+    "@wdpr/ra-web-components-angular": {
+      "@angular/common": "$@angular/common",
+      "@angular/core": "$@angular/core",
+      "@angular/forms": "$@angular/forms",
+      "@angular/platform-browser": "$@angular/platform-browser"
+    }
   }
 }

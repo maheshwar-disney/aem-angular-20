@@ -1,12 +1,21 @@
 import 'zone.js'; 
+
 import { createCustomElement } from '@angular/elements';
 import { createApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
+import { registerComponentLibraryElements } from '@wdpr/ra-web-components-angular';
 
 import { MyAngularComponent } from './app/components/my-angular-component/my-angular-component';
 import { HeroBannerComponent } from './app/components/hero-banner/hero-banner';
 import { CtaBannerComponent } from './app/components/cta-banner/cta-banner';
 import { DisneyCardsComponent } from './app/components/disney-cards/disney-cards';
+
+try {
+  registerComponentLibraryElements();
+  console.log('✅ Component library elements registered');
+} catch (error) {
+  console.error('❌ Failed to register component library elements:', error);
+}
 
 const bootstrap = () => {
   createApplication(appConfig)

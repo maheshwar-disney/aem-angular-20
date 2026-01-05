@@ -1,4 +1,4 @@
-<section class="vacay-container">
+<section class="vacay-container" data-theme="vista/cast">
     <div class="vacay-content">
         <h2 class="vacay-title" *ngIf="heading">{{ heading }}</h2>
 
@@ -6,10 +6,7 @@
             {{ description }}
         </p>
 
-        <a *ngIf="ctaLink" 
-           [href]="ctaLink" 
-           class="vacay-cta" 
-           [attr.aria-label]="buttonText">
+        <a *ngIf="ctaLink" [href]="ctaLink" class="vacay-cta" [attr.aria-label]="buttonText">
             {{ buttonText }}
         </a>
     </div>

@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -7,12 +7,24 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './cta-banner.html',
   styleUrls: ['./cta-banner.scss'],
-  encapsulation: ViewEncapsulation.None // Allows AEM global styles to apply
+  encapsulation: ViewEncapsulation.None,
+  // Add the schema here to support <wdpr-button> and other RA components
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
 })
 export class CtaBannerComponent {
-  // Explicitly mapping the HTML attribute name to the TypeScript variable
   @Input('heading') heading: string = '';
   @Input('description') description: string = '';
   @Input('button-text') buttonText: string = '';
   @Input('cta-link') ctaLink: string = '';
+
+  onClick(event: any): void {
+    console.log('Button clicked', event);
+    if (this.ctaLink) {
+      window.location.href = this.ctaLink + '.html';
+    }
+  }
+ 
+  onDisabledChanged(event: any): void {
+    console.log('Disabled state changed', event);
+  }
 }
