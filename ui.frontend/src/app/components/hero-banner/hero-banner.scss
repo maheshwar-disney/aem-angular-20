@@ -2,11 +2,14 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  background-color: #000;
 
   &__image {
+    display: block;
     width: 100%;
     height: auto;
-    display: block;
+    /* Ensure the component takes up space even before the image loads */
+    min-height: 400px; 
   }
 
   &__overlay {
@@ -16,6 +19,7 @@
     transform: translate(-50%, -50%);
     text-align: center;
     width: 80%;
+    z-index: 10; // High z-index to stay above the media component
   }
 
   &__title {

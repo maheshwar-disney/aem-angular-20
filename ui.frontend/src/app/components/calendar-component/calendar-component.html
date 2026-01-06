@@ -14,8 +14,12 @@
                     readonly
                 />
                 <button type="button" class="calendar-toggle" (click)="toggleCalendar()" aria-label="Toggle calendar">
-                    <!-- Use a simple arrow glyph so the icon is always visible -->
-                    <span class="calendar-toggle-icon" aria-hidden="true">→</span>
+                    <!-- Bold black arrow SVG for clearer toggle affordance -->
+                    <span class="calendar-toggle-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke="#000" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+                    </span>
                 </button>
             </div>
 
@@ -23,8 +27,8 @@
                 variant="single"
                 mode="single"
                 [value]="selectedDate"
-                min="10/01/2025"
-                max="11/30/2025"
+                min="01/01/2026"
+                max="12/31/2026"
                 maxRange="0"
                 size="medium"
                 [enableSixWeeks]="false"

@@ -23,12 +23,48 @@
 
     .picker-container {
         margin-bottom: 30px;
-        
+        /* Anchor the calendar so opening it won't shift surrounding content */
+        position: relative;
+        display: inline-block;
+
         label {
             display: block;
             margin-bottom: 10px;
             font-weight: 600;
             color: #333;
+        }
+
+        .date-input-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            .calendar-toggle {
+                background: transparent;
+                border: none;
+                padding: 6px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                border-radius: 6px;
+
+                &:focus {
+                    outline: 2px solid rgba(48,110,179,0.2);
+                    outline-offset: 2px;
+                }
+            }
+
+            .calendar-toggle-icon {
+                display: inline-flex;
+                line-height: 0;
+
+                svg {
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
         }
 
         .custom-date-picker {
@@ -43,6 +79,19 @@
                 border-color: #1f508a;
                 box-shadow: 0 0 5px rgba(48, 110, 179, 0.3);
             }
+        }
+
+        /* Make the calendar an overlay so it doesn't affect layout */
+        wdpr-calendar {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            z-index: 999;
+            background: #ffffff;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            padding: 8px;
+            min-width: 280px;
         }
     }
 
